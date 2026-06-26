@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Career Goals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+
+section{
+padding:70px 10%;
+}
+
+.title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.title h1{
+font-size:50px;
+color:#38bdf8;
+text-shadow:0 0 20px #38bdf8;
+}
+
+.title p{
+margin-top:15px;
+color:#d1d5db;
+font-size:18px;
+}
+
+.goal-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.goal-card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+padding:30px;
+border-radius:25px;
+transition:.5s;
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.goal-card:hover{
+transform:translateY(-12px) scale(1.03);
+box-shadow:0 0 30px #38bdf8;
+border-color:#38bdf8;
+}
+
+.goal-card h2{
+font-size:26px;
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.goal-card p{
+color:#e2e8f0;
+line-height:1.8;
+}
+
+.footer{
+margin-top:70px;
+text-align:center;
+font-size:18px;
+color:#94a3b8;
+}
+
+body{
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Background Video */
+#bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* Dark Overlay */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    z-index:-1;
+}
+
+</style>
+
+</head>
+
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="video/bg-video.mp4" type="video/mp4">
+</video>
+    
+
+<section>
+
+<div class="title">
+<h1>🎯 Career Goals</h1>
+<p>My Vision • My Passion • My Future</p>
+</div>
+
+<div class="goal-container">
+
+<div class="goal-card">
+<h2>🎓 Education</h2>
+<p>
+Complete my Computer Diploma with excellent grades and continuously improve my programming and technical skills.
+</p>
+</div>
+
+<div class="goal-card">
+<h2>💻 Technical Skills</h2>
+<p>
+Master HTML, CSS, JavaScript, Python, Java, SQL and modern web development technologies to become a skilled Full Stack Developer.
+</p>
+</div>
+
+<div class="goal-card">
+<h2>🚀 Career</h2>
+<p>
+Secure a position in a leading IT company where I can solve real-world problems and contribute to innovative software projects.
+</p>
+</div>
+
+<div class="goal-card">
+<h2>🌍 Future Vision</h2>
+<p>
+Become a successful Software Engineer, keep learning new technologies, and inspire others through creativity and innovation.
+</p>
+</div>
+
+</div>
+
+<div class="footer">
+✨ "Success is achieved through continuous learning, dedication, and hard work." ✨
+</div>
+
+</section>
+
+</body>
+</html>
