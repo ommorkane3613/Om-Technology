@@ -311,7 +311,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 130px;
+    gap: 160px;
 }
 
 .hero-text h1 {
