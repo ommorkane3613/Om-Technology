@@ -35,6 +35,7 @@ body::after {
     position: fixed;
     width: 400px;
     height: 400px;
+   filter: brightness(70%);
     border-radius: 50%;
     filter: blur(120px);
     opacity: 0.4;
