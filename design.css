@@ -955,6 +955,20 @@ section {
         max-width: 340px;
         margin: 0 auto;
     }
+   /* मोबाईल रिस्पॉन्सिव्हच्या आत (768px मीडिया क्वेरीमध्ये) हा कोड जोडा */
+    .profile-card {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        padding: 20px 15px; /* डाव्या-उजव्या बाजूने थोडी स्पेस देण्यासाठी */
+    }
+
+    /* ऑडिओ प्लेयर स्क्रीननुसार लहान-मोठा होण्यासाठी */
+    .profile-card audio {
+        width: 100%; /* कार्डच्या बाहेर जाणार नाही */
+        max-width: 280px; /* जास्त मोठा होणार नाही */
+        margin-top: 15px;
+    }
 
     .profile-card img {
         width: 150px;
