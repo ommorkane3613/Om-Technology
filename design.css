@@ -134,7 +134,7 @@ body::after {
     color:#00e5ff;
 }
 
-   .navbar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -166,10 +166,19 @@ body::after {
     color: #00e5ff; 
 }
 
+.hamburger-menu {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
 .menu {
     display: flex;
     list-style: none;
     gap: 40px;
+    margin-bottom: 0;
+    align-items: center;
 }
 
 .menu a {
@@ -869,81 +878,108 @@ section {
         flex-wrap: wrap; /* मोबाईलवर सोशल मीडिया लिंक्स रॅप होतील */
     }
 }
-/* ==========================
-   MOBILE RESPONSIVE
-========================== */
 
+/* ==========================================
+   MOBILE RESPONSIVE (768px पेक्षा कमी स्क्रीनसाठी)
+========================================== */
 @media (max-width:768px){
 
-    .navbar{
-        height:auto;
-        padding:15px;
-        flex-direction:column;
-        gap:15px;
+    .navbar {
+        height: 70px;
+        padding: 0 20px;
+        flex-direction: row; /* "OM Codes" डावीकडे ठेवण्यासाठी */
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .logo{
-        font-size:28px;
+    .logo {
+        font-size: 24px;
     }
 
-    .menu{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
+    .hamburger-menu {
+        display: block; /* मोबाईलवर Hamburger दिसेल */
     }
 
-    .menu a{
-        font-size:16px;
+    .menu {
+        display: none; /* सुरुवातीला मेनू लपवला */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .hero{
-        flex-direction:column-reverse;
-        text-align:center;
-        gap:30px;
+    /* JavaScript च्या मदतीने मेनू ओपन करण्यासाठी */
+    .menu.show {
+        display: flex;
     }
 
-    .hero-text h1{
-        font-size:2.5rem;
+    .menu a {
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    .datetime {
+        margin-top: 10px;
+        font-size: 14px;
     }
 
-    .hero-text h3{
-        font-size:1.3rem;
+    /* हिरो सेक्शन: फोटो वर आणि नाव खाली */
+    .hero {
+        flex-direction: column-reverse; /* फोटो वर जाईल, नाव खाली येईल */
+        text-align: center;
+        gap: 40px;
     }
 
-    .hero-text p{
-        font-size:16px;
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
 
-    .profile-card{
-        width:90%;
-        max-width:320px;
-        margin:auto;
+    .hero-text h3 {
+        font-size: 1.3rem;
     }
 
-    .profile-card img{
-        width:150px;
-        height:150px;
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .profile-card img {
+        width: 150px;
+        height: 150px;
     }
 
     .about,
     .projects,
     .skills-grid,
-    .contact-container{
-        grid-template-columns:1fr;
-        flex-direction:column;
+    .contact-container {
+        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .about-card,
     .contact-card,
-    .card{
-        width:100%;
+    .card {
+        width: 100%;
     }
 
-    .title h2{
-        font-size:2rem;
+    .title h2 {
+        font-size: 2rem;
     }
 
-    section{
-        padding:60px 20px;
+    section {
+        padding: 60px 20px;
     }
 }
