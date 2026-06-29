@@ -869,3 +869,81 @@ section {
         flex-wrap: wrap; /* मोबाईलवर सोशल मीडिया लिंक्स रॅप होतील */
     }
 }
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    .navbar{
+        height:auto;
+        padding:15px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .menu a{
+        font-size:16px;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        gap:30px;
+    }
+
+    .hero-text h1{
+        font-size:2.5rem;
+    }
+
+    .hero-text h3{
+        font-size:1.3rem;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .profile-card{
+        width:90%;
+        max-width:320px;
+        margin:auto;
+    }
+
+    .profile-card img{
+        width:150px;
+        height:150px;
+    }
+
+    .about,
+    .projects,
+    .skills-grid,
+    .contact-container{
+        grid-template-columns:1fr;
+        flex-direction:column;
+    }
+
+    .about-card,
+    .contact-card,
+    .card{
+        width:100%;
+    }
+
+    .title h2{
+        font-size:2rem;
+    }
+
+    section{
+        padding:60px 20px;
+    }
+}
