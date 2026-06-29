@@ -68,3 +68,18 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+// 5. Hamburger Menu Toggle (मोबाईलसाठी नवीन जोडलेले लॉजिक)
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navMenu = document.getElementById("navMenu");
+
+hamburgerBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+});
+
+// मेनू मधील कोणत्याही लिंकवर क्लिक केल्यावर मेनू बंद व्हावा म्हणून
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+    });
+});
