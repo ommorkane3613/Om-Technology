@@ -1,0 +1,1091 @@
+/* ==========================================================================
+   1. GLOBAL RESETS, THEMES & ANIMATIONS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* --- Premium Aurora Background Effects --- */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    filter: brightness(65%) blur(120px);
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+    animation: floatGlow 8s ease-in-out infinite;
+}
+
+body::before {
+    background: #38bdf8;
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: #8b5cf6;
+    bottom: -120px;
+    right: -120px;
+    animation-delay: 3s;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes floatGlow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(80px, 60px) scale(1.15); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-60px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(-80px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00e5ff; }
+    to { text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, body::before, body::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+   2. NAVBAR CONFIGURATION (Size Reduced)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px; /* Height 80px varun 65px keli */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6%; /* Side padding thodi kami keli */
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+    z-index: 1000;
+    animation: slideDown .8s ease;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px; /* Font size 32px varun 24px kela */
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px #38bdf8;
+}
+
+.logo span { 
+    color: #00e5ff; 
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Gap 40px varun 30px kela */
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.menu a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 16px; /* Font size 18px varun 16px kela */
+    font-weight: 500;
+    transition: .4s;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2.5px;
+    background: #00e5ff;
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+.menu a:hover, 
+.menu a.active {
+    color: #00e5ff;
+}
+
+/* ==========================================================================
+   3. STRUCTURAL UTILITIES & REUSABLE CARDS (GLASSMORPHISM)
+   ========================================================================== */
+header {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px 40px;
+}
+
+section {
+    padding: 60px 8%; /* Padding thodi compact keli */
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h2 {
+    font-size: 2.2rem;
+    color: #38bdf8;
+    position: relative;
+    display: inline-block;
+}
+
+.title h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    transition: 0.4s ease;
+}
+
+.title:hover h2::after {
+    width: 100%;
+}
+
+.title p {
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+/* Premium Uniform Glassmorphic Cards */
+.card,
+.about-card,
+.contact-card,
+.profile-card,
+.skill-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px; /* Corner radius thoda kami kela */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Radial Light Hover Effect */
+.card, .skill-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before, .skill-box::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 60%);
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.card:hover::before, .skill-box:hover::before {
+    opacity: 1;
+}
+
+.card:hover, .about-card:hover, .skill-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   4. HERO ARCHITECTURE & BUTTONS
+   ========================================================================== */
+.hero {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 span {
+    color: #38bdf8;
+    display: inline-block;
+    animation: glow 2s infinite alternate;
+}
+
+.hero-text h3 {
+    font-size: 1.4rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    max-width: 600px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+/* Hero Animations Sequencing */
+.hero-text h1, .hero-text h3, .hero-text p, .hero-text .btn { opacity: 0; }
+.fade-down  { animation: fadeDown 1s ease forwards; }
+.fade-right { animation: fadeRight 1s ease forwards; animation-delay: .4s; }
+.fade-up    { animation: fadeUp 1s ease forwards; animation-delay: .8s; }
+.zoom-in    { animation: zoomIn 1s ease forwards; animation-delay: 1.2s; }
+
+/* Profile Elements */
+.profile-card {
+    width: 330px;
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    animation: float 6s ease-in-out infinite;
+}
+
+.profile-card img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(56,189,248,0.6);
+    transition: 0.4s ease;
+}
+
+.profile-card img:hover {
+    box-shadow: 0 0 40px rgba(0,229,255,0.8);
+    transform: scale(1.08);
+}
+
+/* --- Buttons --- */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 28px;
+    background: #38bdf8;
+    border: 2px solid #38bdf8;
+    border-radius: 50px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before { left: 120%; }
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 15px 35px rgba(56,189,248,0.5);
+    color: #fff;
+}
+
+/* Legacy Contact Special Action Button */
+.contact-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contact-btn a {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,114,255,.4);
+    transition: .4s;
+}
+
+.contact-btn a:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,198,255,.6);
+}
+
+/* ==========================================================================
+   5. GRID LAYOUTS (ABOUT, SKILLS, PROJECTS)
+   ========================================================================== */
+.about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* Desktop var eka line madhe exact 4 Project Cards disnyasathi Layout */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Forcefully 4 columns kele desktop sathi */
+    gap: 20px; /* Container size thodi compact disnyasathi gap kami kela */
+    width: 100%;
+}
+
+/* Card cha aatla padding pan kami kela jene karun size khup mothi disnar nahi */
+.projects .card {
+    padding: 20px; 
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.about-card {
+    max-width: 420px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.about-card h3 {
+    color: #00bfff;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+/* --- Skills Layout --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+/* Large Tablet / Small Desktop sathi Project Layout */
+@media (max-width: 1200px) {
+    .projects {
+        grid-template-columns: repeat(3, 1fr); /* Screen thodi लहान jhali ki 3 cards ditil */
+    }
+}
+
+/* Medium Tablet sathi Layouts */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Tablet var 2 cards ditil */
+    }
+}
+
+/* Mobile sathi Layouts */
+@media (max-width: 576px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .projects {
+        grid-template-columns: 1fr; /* Mobile var proper 1 card row disel */
+    }
+}
+
+.skill-box {
+    background: rgba(15,25,60,0.45);
+    padding: 30px 25px;
+}
+
+.skill-box:hover {
+    box-shadow: 0 0 30px rgba(0,162,255,.5);
+}
+
+.skill-icon {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.skill-box h3 {
+    text-align: center;
+    color: #29b6ff;
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.skill-name span {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Progress Bars */
+.bar {
+    width: 100%;
+    height: 8px;
+    background: #3d4661;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 20px;
+    animation: fillBar 2s ease forwards;
+}
+
+.progress.html      { width: 95%; background: #00e5ff; }
+.progress.css       { width: 90%; background: linear-gradient(90deg,#ff00ff,#7b2cff); }
+.progress.js        { width: 75%; background: linear-gradient(90deg,#ffd600,#ff9800); }
+.progress.python    { width: 60%; background: linear-gradient(90deg,#00ff66,#2ecc71); }
+.progress.bootstrap { width: 80%; background: linear-gradient(90deg,#6f42c1,#a855f7); }
+.progress.figma     { width: 85%; background: linear-gradient(90deg,#f24e1e,#ff7262,#a259ff); }
+
+/* --- Project Cards Layout (Icon size reduced) --- */
+.project-icon {
+    height: 140px; /* Container height kami keli */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-icon i {
+    font-size: 55px; /* Icon size 80px varun 55px kela jene karun te subodh disel */
+    color: #38bdf8;
+    animation: pulse 2.5s infinite;
+    filter: drop-shadow(0 0 10px #38bdf8);
+    transition: 0.3s ease;
+}
+
+.card:hover .project-icon i, .project-icon i:hover {
+    transform: scale(1.1);
+    color: #00e5ff;
+}
+
+/* ==========================================================================
+   6. CONTACT ARCHITECTURE & SOCIALS
+   ========================================================================== */
+.contact-container {
+    display: flex;
+    gap: 35px;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+}
+
+.contact-card {
+    flex: 1;
+    min-height: 550px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+
+.contact-card h3 {
+    font-size: 28px;
+    color: #38bdf8;
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    font-size: 17px;
+    margin: 15px 0;
+    color: #e2e8f0;
+    line-height: 1.7;
+}
+
+.contact-info a {
+    color: #38bdf8;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.contact-info a:hover {
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+/* Contact Form Inputs */
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+    font-size: 15px;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #cbd5e1;
+}
+
+.contact-card textarea {
+    resize: none;
+}
+
+.contact-card button {
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.contact-card button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,198,255,.5);
+}
+
+/* --- Social Buttons (Single Row) --- */
+.social {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+.social a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: rgba(56,189,248,.15);
+    border: 1px solid rgba(56,189,248,.4);
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.social a:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    transform: translateY(-5px) scale(1.08);
+    filter: drop-shadow(0 10px 15px rgba(56,189,248,0.4));
+}
+
+/* ==========================================================================
+   7. POPUPS & MAP/LOCATION UTILITIES
+   ========================================================================== */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    z-index: 11000;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-box {
+    width: 320px; 
+    max-width: 90%;
+    padding: 25px 20px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    border: 2px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,255,255,.25), 0 15px 35px rgba(0,0,0,.45);
+}
+
+.popup-box h2 {
+    color: green;
+}
+
+.popup-box button {
+    margin-top: 25px;
+    padding: 12px 40px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    background-size: 200%;
+    transition: .4s;
+    box-shadow: 0 10px 25px rgba(0,114,255,.4);
+}
+
+.popup-box button:hover {
+    background-position: right;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 20px cyan, 0 15px 35px rgba(0,198,255,.5);
+}
+
+.popup-box button:active {
+    transform: scale(.95);
+}
+
+/* --- Location & Map Buttons --- */
+.location-box {
+    margin-top: 25px;
+    text-align: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    border: 2px solid rgba(255,255,255,.15);
+    box-shadow: 0 8px 25px rgba(0,114,255,.4);
+    transition: .4s;
+}
+
+.map-btn i {
+    font-size: 18px;
+}
+
+.map-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(135deg,#00e5ff,#0066ff);
+    box-shadow: 0 0 20px cyan, 0 15px 35px rgba(0,198,255,.5);
+}
+
+.map-btn:active {
+    transform: scale(.96);
+}
+
+/* ==========================================================================
+   8. FIXED FLOATING UTILITIES & RESPONSIVE CONFIGURATION
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 10000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(37,211,102,0.5);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(255, 0, 170);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    text-decoration: none;
+    z-index: 10000;
+    display: none; 
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 15px 35px rgba(255, 0, 170, 0.5);
+}
+
+/* --- Media Queries (Tablet & Mobile Responsiveness) --- */
+@media(max-width: 900px) {
+    .navbar { 
+        padding: 0 5%; 
+    }
+    .menu { 
+        gap: 20px; 
+    }
+    .menu a { 
+        font-size: 15px; 
+    }
+    .logo { 
+        font-size: 22px; 
+    }
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-text h1 { 
+        font-size: 2.8rem; 
+    }
+    .button-container { 
+        justify-content: center; 
+    }
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-card {
+        width: 100%;
+        min-height: auto;
+    }
+    .social {
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE (768px)
+========================================== */
+@media (max-width:768px){
+    .navbar {
+        height: 60px; /* Mobile var proper compact disel */
+        padding: 0 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 22px;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu a {
+        font-size: 17px;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
+    
+    .datetime {
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 310px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .profile-card audio {
+        width: 100%;
+        max-width: 260px;
+        margin-top: 12px;
+    }
+
+    .profile-card img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .about,
+    .skills-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .about-card,
+    .contact-card,
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .title h2 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 50px 15px;
+    }
+}
+/* --- Custom Language Selector View --- */
+.translate-item {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#custom_language_selector {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#custom_language_selector:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}
+
+/* Dropdown chya aatle options black distil jene karun text neat vachata yeil */
+#custom_language_selector option {
+    background: #0f172a;
+    color: white;
+}
+
+/* Top bar cha Google cha extra header frame लपवण्यासाठी */
+.goog-te-banner-frame.skiptranslate, .goog-te-banner-frame {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+
+@media (max-width: 768px) {
+    .translate-item {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    #custom_language_selector {
+        width: 80%;
+        text-align: center;
+    }
+}
+#custom_language_selector {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+#custom_language_selector option {
+    background: #0f172a;
+    color: white;
+}
+.logo {
+    color: #fff;
+    font-size: 24px; /* Size properly kela ahe */
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px #38bdf8;
+    display: flex;       /* Icon ani Text एकाच रेषेत आणण्यासाठी */
+    align-items: center; /* Vertical center alignment */
+}
+
+.logo span { 
+    color: #00e5ff; 
+    margin-right: 4px;
+}
