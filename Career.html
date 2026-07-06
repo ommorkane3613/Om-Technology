@@ -3,165 +3,382 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
 
 <title>Career Goals</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-
-section{
-padding:70px 10%;
-}
-
-.title{
-text-align:center;
-margin-bottom:60px;
-}
-
-.title h1{
-font-size:50px;
-color:#38bdf8;
-text-shadow:0 0 20px #38bdf8;
-}
-
-.title p{
-margin-top:15px;
-color:#d1d5db;
-font-size:18px;
-}
-
-.goal-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.goal-card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,.15);
-padding:30px;
-border-radius:25px;
-transition:.5s;
-box-shadow:0 15px 35px rgba(0,0,0,.3);
-}
-
-.goal-card:hover{
-transform:translateY(-12px) scale(1.03);
-box-shadow:0 0 30px #38bdf8;
-border-color:#38bdf8;
-}
-
-.goal-card h2{
-font-size:26px;
-margin-bottom:15px;
-color:#38bdf8;
-}
-
-.goal-card p{
-color:#e2e8f0;
-line-height:1.8;
-}
-
-.footer{
-margin-top:70px;
-text-align:center;
-font-size:18px;
-color:#94a3b8;
-}
-
-body{
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
+body {
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #0f172a;
+    top: 0px !important;
 }
 
 /* Background Video */
-#bg-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
 /* Dark Overlay */
-body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.55);
-    z-index:-1;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.65);
+    z-index: -1;
 }
 
-</style>
+/* ==========================================================================
+   2. NAVBAR CONFIGURATION (100% Balanced - No Text Break)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%; 
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+    z-index: 1000;
+}
 
+.logo {
+    color: #fff;
+    font-size: 19px; 
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px #38bdf8;
+    display: flex;       
+    align-items: center; 
+    white-space: nowrap;
+}
+
+.logo span { 
+    color: #00e5ff; 
+    margin-right: 4px;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 15px; 
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.menu a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 14px; 
+    font-weight: 500;
+    transition: .4s;
+    white-space: nowrap;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2.5px;
+    background: #00e5ff;
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+.menu a:hover, 
+.menu a.active {
+    color: #00e5ff;
+}
+
+/* ==========================================================================
+   3. CAREER CONTENT & CARDS LAYOUT
+   ========================================================================== */
+section {
+    padding: 110px 5% 60px; /* Top padding thodi vadhवली navbar sathi */
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.title p {
+    margin-top: 10px;
+    color: #d1d5db;
+    font-size: 16px;
+}
+
+/* Exact 4 Columns Grid for Desktop Screen Width */
+.goal-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 16px;
+    width: 100%;
+}
+
+.goal-card {
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .1);
+    padding: 22px;
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+}
+
+.goal-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    border-color: #38bdf8;
+}
+
+.goal-card h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #38bdf8;
+}
+
+.goal-card p {
+    color: #e2e8f0;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.footer {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 15px;
+    color: #94a3b8;
+}
+
+/* --- Language Selector Styles --- */
+.translate-item {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+#custom_language_selector {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+#custom_language_selector option {
+    background: #0f172a;
+    color: white;
+}
+
+/* Google Frame Hide Settings */
+.goog-te-banner-frame.skiptranslate, 
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.skiptranslate iframe {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+========================================== */
+@media (max-width: 1200px) {
+    .goal-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 950px) {
+    .navbar { 
+        padding: 0 3%; 
+    }
+    .menu { 
+        gap: 12px; 
+    }
+    .goal-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px; 
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 19px;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.96);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .menu.show {
+        display: flex;
+    }
+    .menu a {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        padding: 6px 0;
+    }
+    .translate-item {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    #custom_language_selector {
+        width: 80%;
+    }
+    .goal-container {
+        grid-template-columns: 1fr;
+    }
+    .title h1 {
+        font-size: 2rem;
+    }
+    section {
+        padding: 95px 15px 45px;
+    }
+}
+</style>
 </head>
 
-
 <body>
-    <video autoplay muted loop playsinline id="bg-video">
+
+<video autoplay muted loop playsinline id="bg-video">
     <source src="video/bg-video.mp4" type="video/mp4">
 </video>
+
+<!-- Navbar 100% Matching Structure with SVG Dynamic Logo -->
+<nav class="navbar">
+    <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; margin-right: 8px; filter: drop-shadow(0 0 8px #00e5ff);">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span>OM</span> Codes
+    </div>
     
+    <div class="hamburger-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="career.html" class="active">Career Goals</a></li>
+        <li class="translate-item">
+            <select id="custom_language_selector">
+                <option value="en">English</option>
+                <option value="mr">मराठी</option>
+            </select>
+        </li>
+    </ul>
+</nav>
 
 <section>
+    <div class="title">
+        <h1>🎯 Career Goals</h1>
+        <p>My Vision • My Passion • My Future</p>
+    </div>
 
-<div class="title">
-<h1>🎯 Career Goals</h1>
-<p>My Vision • My Passion • My Future</p>
-</div>
+    <div class="goal-container">
+        <div class="goal-card">
+            <h2>🎓 Education</h2>
+            <p>Complete my Computer Diploma with excellent grades and continuously improve my programming and technical skills.</p>
+        </div>
 
-<div class="goal-container">
+        <div class="goal-card">
+            <h2>💻 Technical Skills</h2>
+            <p>Master HTML, CSS, JavaScript, Python, Java, SQL and modern web development technologies to become a skilled Full Stack Developer.</p>
+        </div>
 
-<div class="goal-card">
-<h2>🎓 Education</h2>
-<p>
-Complete my Computer Diploma with excellent grades and continuously improve my programming and technical skills.
-</p>
-</div>
+        <div class="goal-card">
+            <h2>🚀 Career</h2>
+            <p>Secure a position in a leading IT company where I can solve real-world problems and contribute to innovative software projects.</p>
+        </div>
 
-<div class="goal-card">
-<h2>💻 Technical Skills</h2>
-<p>
-Master HTML, CSS, JavaScript, Python, Java, SQL and modern web development technologies to become a skilled Full Stack Developer.
-</p>
-</div>
+        <div class="goal-card">
+            <h2>🌍 Future Vision</h2>
+            <p>Become a successful Software Engineer, keep learning new technologies, and inspire others through creativity and innovation.</p>
+        </div>
+    </div>
 
-<div class="goal-card">
-<h2>🚀 Career</h2>
-<p>
-Secure a position in a leading IT company where I can solve real-world problems and contribute to innovative software projects.
-</p>
-</div>
-
-<div class="goal-card">
-<h2>🌍 Future Vision</h2>
-<p>
-Become a successful Software Engineer, keep learning new technologies, and inspire others through creativity and innovation.
-</p>
-</div>
-
-</div>
-
-<div class="footer">
-✨ "Success is achieved through continuous learning, dedication, and hard work." ✨
-</div>
-
+    <div class="footer">
+        ✨ "Success is achieved through continuous learning, dedication, and hard work." ✨
+    </div>
 </section>
 
 </body>
