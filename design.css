@@ -35,9 +35,8 @@ body::after {
     position: fixed;
     width: 400px;
     height: 400px;
-   filter: brightness(65%);
+    filter: brightness(65%) blur(120px);
     border-radius: 50%;
-    filter: blur(120px);
     opacity: 0.4;
     z-index: -1;
     pointer-events: none;
@@ -112,39 +111,18 @@ body::after {
 }
 
 /* ==========================================================================
-   2. NAVBAR CONFIGURATION
+   2. NAVBAR CONFIGURATION (Size Reduced)
    ========================================================================== */
-
-.menu a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    width:0;
-    height:3px;
-    background:#00e5ff;
-    border-radius:10px;
-    transition:.3s;
-}
-
-.menu a.active::after{
-    width:100%;
-}
-
-.menu a.active{
-    color:#00e5ff;
-}
-
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 65px; /* Height 80px varun 65px keli */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 8%;
+    padding: 0 6%; /* Side padding thodi kami keli */
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -156,7 +134,7 @@ body::after {
 
 .logo {
     color: #fff;
-    font-size: 32px;
+    font-size: 24px; /* Font size 32px varun 24px kela */
     font-weight: 700;
     cursor: pointer;
     letter-spacing: 1px;
@@ -169,7 +147,7 @@ body::after {
 
 .hamburger-menu {
     display: none;
-    font-size: 26px;
+    font-size: 22px;
     color: white;
     cursor: pointer;
 }
@@ -177,7 +155,7 @@ body::after {
 .menu {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 30px; /* Gap 40px varun 30px kela */
     margin-bottom: 0;
     align-items: center;
 }
@@ -186,7 +164,7 @@ body::after {
     position: relative;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px; /* Font size 18px varun 16px kela */
     font-weight: 500;
     transition: .4s;
 }
@@ -195,9 +173,9 @@ body::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -8px;
+    bottom: -6px;
     width: 0;
-    height: 3px;
+    height: 2.5px;
     background: #00e5ff;
     border-radius: 10px;
     transition: .4s;
@@ -221,20 +199,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 40px 40px;
+    padding: 90px 20px 40px;
 }
 
 section {
-    padding: 80px 10%;
+    padding: 60px 8%; /* Padding thodi compact keli */
+    width: 100%;
 }
 
 .title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .title h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #38bdf8;
     position: relative;
     display: inline-block;
@@ -257,8 +236,8 @@ section {
 
 .title p {
     color: #b0b0b0;
-    font-size: 18px;
-    margin-top: 10px;
+    font-size: 16px;
+    margin-top: 8px;
 }
 
 /* Premium Uniform Glassmorphic Cards */
@@ -271,7 +250,7 @@ section {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: 16px; /* Corner radius thoda kami kela */
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     animation: fadeUp 0.8s ease forwards;
 }
@@ -298,8 +277,8 @@ section {
 }
 
 .card:hover, .about-card:hover, .skill-box:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
@@ -311,11 +290,15 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 160px;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 10px;
 }
 
@@ -326,7 +309,7 @@ section {
 }
 
 .hero-text h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #94a3b8;
     margin-bottom: 20px;
 }
@@ -346,7 +329,8 @@ section {
 
 /* Profile Elements */
 .profile-card {
-    width: 350px;
+    width: 330px;
+    max-width: 100%;
     padding: 20px;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0,0,0,.4);
@@ -354,10 +338,10 @@ section {
 }
 
 .profile-card img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    border: 5px solid #38bdf8;
+    border: 4px solid #38bdf8;
     object-fit: cover;
     margin-bottom: 15px;
     box-shadow: 0 0 20px rgba(56,189,248,0.6);
@@ -373,14 +357,14 @@ section {
 .button-container {
     display: flex;
     gap: 15px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .btn {
     display: inline-block;
     text-decoration: none;
     color: #fff;
-    padding: 12px 32px;
+    padding: 10px 28px;
     background: #38bdf8;
     border: 2px solid #38bdf8;
     border-radius: 50px;
@@ -419,11 +403,11 @@ section {
 
 .contact-btn a {
     display: inline-block;
-    padding: 16px 40px;
+    padding: 14px 35px;
     background: linear-gradient(135deg,#00c6ff,#0072ff);
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     border-radius: 50px;
     box-shadow: 0 10px 25px rgba(0,114,255,.4);
@@ -438,10 +422,25 @@ section {
 /* ==========================================================================
    5. GRID LAYOUTS (ABOUT, SKILLS, PROJECTS)
    ========================================================================== */
-.about, .projects {
+.about {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    width: 100%;
+}
+
+/* Desktop var eka line madhe exact 4 Project Cards disnyasathi Layout */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Forcefully 4 columns kele desktop sathi */
+    gap: 20px; /* Container size thodi compact disnyasathi gap kami kela */
+    width: 100%;
+}
+
+/* Card cha aatla padding pan kami kela jene karun size khup mothi disnar nahi */
+.projects .card {
+    padding: 20px; 
+    text-align: center;
 }
 
 .about-container {
@@ -449,10 +448,12 @@ section {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .about-card {
-    width: 420px;
+    max-width: 420px;
+    width: 100%;
     padding: 30px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -460,13 +461,13 @@ section {
 
 .about-card h3 {
     color: #00bfff;
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 26px;
+    margin-bottom: 15px;
 }
 
 .about-card p {
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.7;
     color: #ddd;
 }
 
@@ -476,25 +477,39 @@ section {
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 50px;
+    width: 100%;
 }
 
-/* Tablet */
+/* Large Tablet / Small Desktop sathi Project Layout */
+@media (max-width: 1200px) {
+    .projects {
+        grid-template-columns: repeat(3, 1fr); /* Screen thodi लहान jhali ki 3 cards ditil */
+    }
+}
+
+/* Medium Tablet sathi Layouts */
 @media (max-width: 992px) {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Tablet var 2 cards ditil */
+    }
 }
 
-/* Mobile */
+/* Mobile sathi Layouts */
 @media (max-width: 576px) {
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+    .projects {
+        grid-template-columns: 1fr; /* Mobile var proper 1 card row disel */
     }
 }
 
 .skill-box {
     background: rgba(15,25,60,0.45);
-    padding: 35px 30px;
+    padding: 30px 25px;
 }
 
 .skill-box:hover {
@@ -502,7 +517,7 @@ section {
 }
 
 .skill-icon {
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -510,7 +525,7 @@ section {
 .skill-box h3 {
     text-align: center;
     color: #29b6ff;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .skill-name {
@@ -523,14 +538,15 @@ section {
     color: white;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 6px 15px;
+    padding: 5px 12px;
     border-radius: 20px;
+    font-size: 14px;
 }
 
 /* Progress Bars */
 .bar {
     width: 100%;
-    height: 10px;
+    height: 8px;
     background: #3d4661;
     border-radius: 20px;
     overflow: hidden;
@@ -549,16 +565,16 @@ section {
 .progress.bootstrap { width: 80%; background: linear-gradient(90deg,#6f42c1,#a855f7); }
 .progress.figma     { width: 85%; background: linear-gradient(90deg,#f24e1e,#ff7262,#a259ff); }
 
-/* --- Project Cards Layout --- */
+/* --- Project Cards Layout (Icon size reduced) --- */
 .project-icon {
-    height: 200px;
+    height: 140px; /* Container height kami keli */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .project-icon i {
-    font-size: 80px;
+    font-size: 55px; /* Icon size 80px varun 55px kela jene karun te subodh disel */
     color: #38bdf8;
     animation: pulse 2.5s infinite;
     filter: drop-shadow(0 0 10px #38bdf8);
@@ -566,7 +582,7 @@ section {
 }
 
 .card:hover .project-icon i, .project-icon i:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
     color: #00e5ff;
 }
 
@@ -578,27 +594,28 @@ section {
     gap: 35px;
     align-items: stretch;
     justify-content: center;
+    width: 100%;
 }
 
 .contact-card {
     flex: 1;
-    min-height: 600px;
-    padding: 40px;
+    min-height: 550px;
+    padding: 35px;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0,0,0,.4);
 }
 
 .contact-card h3 {
-    font-size: 30px;
+    font-size: 28px;
     color: #38bdf8;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .contact-info p {
-    font-size: 18px;
-    margin: 20px 0;
+    font-size: 17px;
+    margin: 15px 0;
     color: #e2e8f0;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .contact-info a {
@@ -616,20 +633,20 @@ section {
 .contact-card form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
 }
 
 .contact-card input,
 .contact-card textarea {
     width: 100%;
-    padding: 15px;
+    padding: 12px 15px;
     outline: none;
-    border-radius: 12px;
+    border-radius: 10px;
     background: rgba(255,255,255,.08);
     color: #fff;
     border: 1px solid rgba(255,255,255,.15);
     backdrop-filter: blur(10px);
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .contact-card input::placeholder,
@@ -642,48 +659,49 @@ section {
 }
 
 .contact-card button {
-    padding: 15px;
+    padding: 12px;
     border: none;
     border-radius: 50px;
     background: linear-gradient(135deg,#00c6ff,#0072ff);
     color: #fff;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: .4s;
 }
 
 .contact-card button:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0,198,255,.5);
 }
 
 /* --- Social Buttons (Single Row) --- */
 .social {
-    margin-top: 35px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap; /* सर्व एकाच रो मध्ये ठेवण्यासाठी */
+    gap: 12px;
+    flex-wrap: nowrap;
 }
 
 .social a {
     text-decoration: none;
     color: white;
-    padding: 12px 25px;
+    padding: 10px 22px;
     border-radius: 50px;
     background: rgba(56,189,248,.15);
     border: 1px solid rgba(56,189,248,.4);
     font-weight: 600;
     display: inline-block;
     transition: 0.3s;
+    font-size: 15px;
 }
 
 .social a:hover {
     background: #38bdf8;
     color: #0f172a;
-    transform: translateY(-6px) scale(1.1);
+    transform: translateY(-5px) scale(1.08);
     filter: drop-shadow(0 10px 15px rgba(56,189,248,0.4));
 }
 
@@ -729,11 +747,11 @@ section {
 
 .popup-box button {
     margin-top: 25px;
-    padding: 14px 45px;
+    padding: 12px 40px;
     border: none;
     outline: none;
     border-radius: 50px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
@@ -768,10 +786,10 @@ section {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 14px 28px;
+    padding: 12px 25px;
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     border-radius: 50px;
     background: linear-gradient(135deg,#00c6ff,#0072ff);
@@ -781,7 +799,7 @@ section {
 }
 
 .map-btn i {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .map-btn:hover {
@@ -801,15 +819,15 @@ section {
     position: fixed;
     bottom: 25px;
     left: 25px;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     background: #25D366;
     color: white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 28px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     z-index: 10000;
     text-decoration: none;
@@ -827,11 +845,11 @@ section {
     right: 20px;
     background: rgb(255, 0, 170);
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 45px;
     text-decoration: none;
     z-index: 10000;
     display: none; 
@@ -852,17 +870,17 @@ section {
         gap: 20px; 
     }
     .menu a { 
-        font-size: 16px; 
+        font-size: 15px; 
     }
     .logo { 
-        font-size: 26px; 
+        font-size: 22px; 
     }
     .hero {
         flex-direction: column-reverse;
         text-align: center;
     }
     .hero-text h1 { 
-        font-size: 3rem; 
+        font-size: 2.8rem; 
     }
     .button-container { 
         justify-content: center; 
@@ -876,125 +894,198 @@ section {
         min-height: auto;
     }
     .social {
-        flex-wrap: wrap; /* मोबाईलवर सोशल मीडिया लिंक्स रॅप होतील */
+        flex-wrap: wrap;
     }
 }
 
 /* ==========================================
-   MOBILE RESPONSIVE (768px पेक्षा कमी स्क्रीनसाठी)
+   MOBILE RESPONSIVE (768px)
 ========================================== */
 @media (max-width:768px){
-
     .navbar {
-        height: 70px;
-        padding: 0 20px;
-        flex-direction: row; /* "OM Codes" डावीकडे ठेवण्यासाठी */
+        height: 60px; /* Mobile var proper compact disel */
+        padding: 0 15px;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
 
     .logo {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .hamburger-menu {
-        display: block; /* मोबाईलवर Hamburger दिसेल */
+        display: block;
+        font-size: 22px;
     }
 
     .menu {
-        display: none; /* सुरुवातीला मेनू लपवला */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 60px;
         left: 0;
         width: 100%;
         background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(15px);
         padding: 20px;
-        gap: 20px;
+        gap: 15px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* JavaScript च्या मदतीने मेनू ओपन करण्यासाठी */
     .menu.show {
         display: flex;
     }
 
     .menu a {
-        font-size: 18px;
+        font-size: 17px;
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 8px 0;
     }
     
     .datetime {
         margin-top: 10px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
-    /* हिरो सेक्शन: फोटो वर आणि नाव खाली */
     .hero {
-        flex-direction: column-reverse; /* फोटो वर जाईल, नाव खाली येईल */
+        flex-direction: column-reverse;
         text-align: center;
-        gap: 40px;
+        gap: 30px;
     }
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-text h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .hero-text p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .profile-card {
         width: 100%;
-        max-width: 340px;
+        max-width: 310px;
         margin: 0 auto;
-    }
-   /* मोबाईल रिस्पॉन्सिव्हच्या आत (768px मीडिया क्वेरीमध्ये) हा कोड जोडा */
-    .profile-card {
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto;
-        padding: 20px 15px; /* डाव्या-उजव्या बाजूने थोडी स्पेस देण्यासाठी */
+        padding: 15px;
     }
 
-    /* ऑडिओ प्लेयर स्क्रीननुसार लहान-मोठा होण्यासाठी */
     .profile-card audio {
-        width: 100%; /* कार्डच्या बाहेर जाणार नाही */
-        max-width: 280px; /* जास्त मोठा होणार नाही */
-        margin-top: 15px;
+        width: 100%;
+        max-width: 260px;
+        margin-top: 12px;
     }
 
     .profile-card img {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 
     .about,
-    .projects,
     .skills-grid,
     .contact-container {
         grid-template-columns: 1fr;
         flex-direction: column;
+        width: 100%;
     }
 
     .about-card,
     .contact-card,
     .card {
         width: 100%;
+        max-width: 100%;
     }
 
     .title h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     section {
-        padding: 60px 20px;
+        padding: 50px 15px;
     }
+}
+/* --- Custom Language Selector View --- */
+.translate-item {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#custom_language_selector {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#custom_language_selector:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}
+
+/* Dropdown chya aatle options black distil jene karun text neat vachata yeil */
+#custom_language_selector option {
+    background: #0f172a;
+    color: white;
+}
+
+/* Top bar cha Google cha extra header frame लपवण्यासाठी */
+.goog-te-banner-frame.skiptranslate, .goog-te-banner-frame {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+
+@media (max-width: 768px) {
+    .translate-item {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    #custom_language_selector {
+        width: 80%;
+        text-align: center;
+    }
+}
+#custom_language_selector {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+#custom_language_selector option {
+    background: #0f172a;
+    color: white;
+}
+.logo {
+    color: #fff;
+    font-size: 24px; /* Size properly kela ahe */
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px #38bdf8;
+    display: flex;       /* Icon ani Text एकाच रेषेत आणण्यासाठी */
+    align-items: center; /* Vertical center alignment */
+}
+
+.logo span { 
+    color: #00e5ff; 
+    margin-right: 4px;
 }
