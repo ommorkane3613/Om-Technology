@@ -83,3 +83,64 @@ navLinks.forEach(link => {
         navMenu.classList.remove("show");
     });
 });
+
+let num1 = Math.floor(Math.random() * 10) + 1;
+let num2 = Math.floor(Math.random() * 10) + 1;
+
+document.getElementById("captchaQuestion").innerHTML =
+    `Solve: ${num1} + ${num2} = ?`;
+
+document.getElementById("miniForm").addEventListener("submit", function(e) {
+
+    let answer = document.getElementById("captchaInput").value;
+
+    if (parseInt(answer) !== (num1 + num2)) {
+        e.preventDefault();
+        alert("❌ CAPTCHA is incorrect!");
+
+        // New CAPTCHA
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        document.getElementById("captchaQuestion").innerHTML =
+            `Solve: ${num1} + ${num2} = ?`;
+
+        document.getElementById("captchaInput").value = "";
+    } else {
+        alert("✅ Message Sent Successfully!");
+    }
+    
+});
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,mr,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+function changeLanguage(langCode) {
+    // 1. First method: Normal Google dropdown select check
+    var selectEl = document.querySelector('.goog-te-combo');
+    if (selectEl) {
+        selectEl.value = langCode;
+        selectEl.dispatchEvent(new Event('change'));
+    } else {
+        // 2. Second method: Jar main element load nashi jhala tar iframe check karel
+        var iframe = document.querySelector('iframe.goog-te-menu-frame');
+        if (iframe && iframe.contentWindow) {
+            var doc = iframe.contentDocument || iframe.contentWindow.document;
+            var links = doc.querySelectorAll('.goog-te-menu2-item span.text');
+            for (var i = 0; i < links.length; i++) {
+                if (langCode === 'mr' && links[i].innerText.includes('Marathi')) { links[i].click(); return; }
+                if (langCode === 'hi' && links[i].innerText.includes('Hindi')) { links[i].click(); return; }
+                if (langCode === 'en' && links[i].innerText.includes('English')) { links[i].click(); return; }
+            }
+        }
+        // 3. Third method: Direct cookie trick (Google Translate cookies utilize karel)
+        document.cookie = "googtrans=/en/" + langCode + "; path=/";
+        document.cookie = "googtrans=/en/" + langCode + "; domain=" + window.location.hostname + "; path=/";
+        location.reload(); // Cookie apply honyasathi page instantly refresh hoil
+    }
+}
+
+
